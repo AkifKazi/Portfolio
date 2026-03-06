@@ -1,0 +1,100 @@
+:root {
+  /* Usamos el mismo fondo que el bg de dark mode para el lightbox */
+  --pswp-backdrop: var(--color-bg, #100F0F);
+  --pswp-text-color: #f5f5f5;
+  --pswp-button-hover: rgba(255, 255, 255, 0.12);
+}
+
+body.layout-project {
+  --pswp-backdrop: var(--color-portfolio-bg, var(--color-bg, #100F0F));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pswp-backdrop: var(--color-bg, #100F0F);
+    --pswp-text-color: #CECDC3;
+    --pswp-button-hover: rgba(255, 255, 255, 0.12);
+  }
+
+  body.layout-project {
+    --pswp-backdrop: var(--color-portfolio-bg, var(--color-bg, #100F0F));
+  }
+}
+
+:root[data-theme="dark"] {
+  --pswp-backdrop: var(--color-bg, #100F0F);
+  --pswp-text-color: #CECDC3;
+  --pswp-button-hover: rgba(255, 255, 255, 0.12);
+}
+
+/* .pswp img {
+  mix-blend-mode: multiply;
+} */
+
+.pswp__bg {
+  /* Forzamos fondo oscuro en todos los temas; valor claro anterior:
+     background-color: var(--pswp-backdrop); */
+  background-color:var(--pswp-backdrop)!important;
+  opacity: 1;
+}
+.pswp__caption,
+.pswp__counter {
+  color: var(--pswp-text-color);
+}
+.pswp__counter {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5); 
+    padding: 0 0.7rem;
+}
+
+.pswp__button--arrow--next .pswp__icn,
+.pswp__button--arrow--prev .pswp__icn {
+  stroke: var(--pswp-text-color);
+  fill: none;
+}
+
+.pswp__button--arrow--next,
+.pswp__button--arrow--prev {
+  background: transparent;
+}
+
+.pswp__button--arrow--next:hover,
+.pswp__button--arrow--prev:hover,
+.pswp__button--arrow--next:focus-visible,
+.pswp__button--arrow--prev:focus-visible {
+  background: var(--pswp-button-hover);
+}
+
+.pswp__custom-caption {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  bottom: 12px;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--pswp-text-color);
+  background: rgba(0, 0, 0, 0.5); 
+  display: block;
+  padding: 8px 12px;
+  text-align: center;
+  white-space: normal;
+  max-width: min(92vw, 1100px);
+  margin: 0;
+  border-radius: 10px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+  width: auto;
+}
+
+.pswp__custom-caption:empty {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .pswp__custom-caption {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
